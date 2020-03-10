@@ -1,6 +1,5 @@
 package com.lbstecnologia.erp.app.services;
 
-import com.lbstecnologia.erp.app.enums.StatusEnum;
 import com.lbstecnologia.erp.app.models.Aluno;
 import com.lbstecnologia.erp.app.models.dtos.AlunoDTO;
 import com.lbstecnologia.erp.app.repositories.AlunoRepository;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Service
