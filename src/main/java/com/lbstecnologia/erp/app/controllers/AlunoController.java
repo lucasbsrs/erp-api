@@ -11,6 +11,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/alunos")
@@ -38,6 +39,13 @@ public class AlunoController {
     ) {
         alunoService.editar(id, aluno);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping
+    public ResponseEntity<List<AlunoDTO>> buscarTodos() {
+        List<AlunoDTO> itens = alunoService.buscarTodos();
+
+        return ResponseEntity.ok().body(itens);
     }
 
 }
