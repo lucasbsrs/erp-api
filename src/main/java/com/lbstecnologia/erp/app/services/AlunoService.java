@@ -1,5 +1,6 @@
 package com.lbstecnologia.erp.app.services;
 
+import com.lbstecnologia.erp.app.enums.StatusEnum;
 import com.lbstecnologia.erp.app.models.Aluno;
 import com.lbstecnologia.erp.app.models.dtos.AlunoDTO;
 import com.lbstecnologia.erp.app.repositories.AlunoRepository;
@@ -62,6 +63,22 @@ public class AlunoService extends ServiceAbstract<Aluno> {
         Aluno aluno = alunoRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException(ObjectNotFoundException.ALUNO_NAO_ENCONTRADO));
 
         return modelMapper.map(aluno, AlunoDTO.class);
+    }
+
+    @Transactional
+    public void excluir(Long id) {
+        Aluno aluno = alunoRepository.findById(id).orElse(null);
+        AlunoDTO dto = modelMapper.map(aluno, AlunoDTO.class);
+
+        verificaObjeto(aluno, ObjectNotFoundException.ALUNO_NAO_ENCONTRADO);
+
+        Aluno entity = modelMapper.map(dto, Aluno.class);
+        entity.setId(aluno.getId());
+        entity.setStatus(StatusEnum.INATIVO);
+        //entity.setDataCriacao(aluno.getDataCriacao());
+        entity.setDataAtualizacao(LocalDateTime.now());
+
+        alunoRepository.save(entity);
     }
 
 }

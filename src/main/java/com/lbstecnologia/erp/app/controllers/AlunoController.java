@@ -55,4 +55,12 @@ public class AlunoController {
         return ResponseEntity.ok().body(aluno);
     }
 
+    @DeleteMapping(value = "/{idAluno}")
+    public ResponseEntity<Void> excluir(
+            @PathVariable Long idAluno) {
+
+        alunoService.excluir(idAluno);
+        return ResponseEntity.noContent().build();
+    }
+
 }
