@@ -8,6 +8,7 @@ public class ObjectNotFoundException extends RuntimeException {
 	private Map<String, Object> map = new HashMap<>();
 
 	public static final String ALUNO_NAO_ENCONTRADO = "Aluno não encontrado";
+	public static final String PROFESSOR_NAO_ENCONTRADO = "Professor não encontrado";
 
 	public ObjectNotFoundException(String msg) {
 		super(msg);

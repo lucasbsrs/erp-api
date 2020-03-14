@@ -75,7 +75,6 @@ public class AlunoService extends ServiceAbstract<Aluno> {
         Aluno entity = modelMapper.map(dto, Aluno.class);
         entity.setId(aluno.getId());
         entity.setStatus(StatusEnum.INATIVO);
-        //entity.setDataCriacao(aluno.getDataCriacao());
         entity.setDataAtualizacao(LocalDateTime.now());
 
         alunoRepository.save(entity);
