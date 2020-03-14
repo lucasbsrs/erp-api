@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -20,7 +21,7 @@ public class AlunoDTO implements Serializable {
     private String endereco;
     private String usuario;
     private StatusEnum status;
-    private LocalDate dataCriacao;
-    private LocalDate dataAtualizacao;
+    private LocalDateTime dataCriacao;
+    private LocalDateTime dataAtualizacao;
 
 }

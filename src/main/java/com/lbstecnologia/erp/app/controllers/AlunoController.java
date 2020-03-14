@@ -48,4 +48,11 @@ public class AlunoController {
         return ResponseEntity.ok().body(itens);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<AlunoDTO> buscarPorId(@PathVariable Long id) {
+        AlunoDTO aluno = alunoService.buscarPoId(id);
+
+        return ResponseEntity.ok().body(aluno);
+    }
+
 }

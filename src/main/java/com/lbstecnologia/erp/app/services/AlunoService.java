@@ -58,4 +58,10 @@ public class AlunoService extends ServiceAbstract<Aluno> {
 
     }
 
+    public AlunoDTO buscarPoId(Long id) {
+        Aluno aluno = alunoRepository.findById(id).orElseThrow(() -> new ObjectNotFoundException(ObjectNotFoundException.ALUNO_NAO_ENCONTRADO));
+
+        return modelMapper.map(aluno, AlunoDTO.class);
+    }
+
 }
